@@ -25,7 +25,7 @@
 #ifndef __RFCOMM_H
 #define __RFCOMM_H
 
-#include <endian.h>
+#include <sys/endian.h>
 
 #define RFCOMM_PSM 3
 

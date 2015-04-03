@@ -30,12 +30,11 @@
 #include <ctype.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <malloc.h>
 #include <getopt.h>
 #include <signal.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
-
+#include <sys/endian.h>
 #include "parser/parser.h"
 #include "lib/hci.h"
 #include "lib/hci_lib.h"

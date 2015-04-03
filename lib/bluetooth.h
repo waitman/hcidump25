@@ -33,9 +33,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include <endian.h>
-#include <byteswap.h>
 #include <netinet/in.h>
+#include <sys/endian.h>
 
 #ifndef AF_BLUETOOTH
 #define AF_BLUETOOTH	31
@@ -126,12 +125,12 @@ enum {
 #define btohl(d)  (d)
 #define btohll(d) (d)
 #elif __BYTE_ORDER == __BIG_ENDIAN
-#define htobs(d)  bswap_16(d)
-#define htobl(d)  bswap_32(d)
-#define htobll(d) bswap_64(d)
-#define btohs(d)  bswap_16(d)
-#define btohl(d)  bswap_32(d)
-#define btohll(d) bswap_64(d)
+#define htobs(d)  bswap16(d)
+#define htobl(d)  bswap32(d)
+#define htobll(d) bswap64(d)
+#define btohs(d)  bswap16(d)
+#define btohl(d)  bswap32(d)
+#define btohll(d) bswap64(d)
 #else
 #error "Unknown byte order"
 #endif
@@ -161,7 +160,7 @@ static inline uint64_t bt_get_le64(const void *ptr)
 
 static inline uint64_t bt_get_be64(const void *ptr)
 {
-	return bswap_64(bt_get_unaligned((const uint64_t *) ptr));
+	return bswap64(bt_get_unaligned((const uint64_t *) ptr));
 }
 
 static inline uint32_t bt_get_le32(const void *ptr)
@@ -171,7 +170,7 @@ static inline uint32_t bt_get_le32(const void *ptr)
 
 static inline uint32_t bt_get_be32(const void *ptr)
 {
-	return bswap_32(bt_get_unaligned((const uint32_t *) ptr));
+	return bswap32(bt_get_unaligned((const uint32_t *) ptr));
 }
 
 static inline uint16_t bt_get_le16(const void *ptr)
@@ -181,12 +180,12 @@ static inline uint16_t bt_get_le16(const void *ptr)
 
 static inline uint16_t bt_get_be16(const void *ptr)
 {
-	return bswap_16(bt_get_unaligned((const uint16_t *) ptr));
+	return bswap16(bt_get_unaligned((const uint16_t *) ptr));
 }
 #elif __BYTE_ORDER == __BIG_ENDIAN
 static inline uint64_t bt_get_le64(const void *ptr)
 {
-	return bswap_64(bt_get_unaligned((const uint64_t *) ptr));
+	return bswap64(bt_get_unaligned((const uint64_t *) ptr));
 }
 
 static inline uint64_t bt_get_be64(const void *ptr)
@@ -196,7 +195,7 @@ static inline uint64_t bt_get_be64(const void *ptr)
 
 static inline uint32_t bt_get_le32(const void *ptr)
 {
-	return bswap_32(bt_get_unaligned((const uint32_t *) ptr));
+	return bswap32(bt_get_unaligned((const uint32_t *) ptr));
 }
 
 static inline uint32_t bt_get_be32(const void *ptr)
@@ -206,7 +205,7 @@ static inline uint32_t bt_get_be32(const void *ptr)
 
 static inline uint16_t bt_get_le16(const void *ptr)
 {
-	return bswap_16(bt_get_unaligned((const uint16_t *) ptr));
+	return bswap16(bt_get_unaligned((const uint16_t *) ptr));
 }
 
 static inline uint16_t bt_get_be16(const void *ptr)

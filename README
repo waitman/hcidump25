@@ -1,3 +1,27 @@
+
+This version modified to build on FreeBSD 11.0-Current by Waitman Gobble <ns@waitman.net>
+
+uses BSD Makefile.
+
+# make
+
+# make clean
+
+No install at the moment. It currently reports error:
+
+# ./hcidump
+HCI sniffer - Bluetooth packet analyzer ver 2.5
+Can't open device: Protocol not supported
+
+However, you can read the RAW packet files which have been created by hcidump 
+in ports. The reason you may wish to do this is because there are some minor 
+issues in the older version of hcidump in the FreeBSD ports tree. One issue 
+with the older version is that it does not seem to properly continue subsequent 
+packets when the MTU is set smaller than the response size, which generates 
+syntax errors.
+
+
+
 BlueZ - Bluetooth protocol stack for Linux
 ******************************************
 

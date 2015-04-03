@@ -38,6 +38,8 @@
 #include "bluetooth.h"
 #include "hci.h"
 
+#define EBADRQC         54  
+
 void baswap(bdaddr_t *dst, const bdaddr_t *src)
 {
 	register unsigned char *d = (unsigned char *) dst;
